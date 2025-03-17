@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  suicide_analysis:
+    build: .  
+    container_name: suicide_analysis
+    volumes:
+      - ./output:/app/output  # Mapea la carpeta local "output" a la carpeta en Docker
+      - suicide_analysis_data:/app/volume_output  # Monta un volumen en Docker en una ruta distinta
+    command: tail -f /dev/null  # Mantiene el contenedor en ejecución
+
+volumes:
+  suicide_analysis_data:
